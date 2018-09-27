@@ -1,37 +1,30 @@
-var language1 = "es";
-var language2 = "fr";
-var language3 = "en";
-var message1 = "Hola mundo"
-var message2 = "Bonjour tout le monde"
-var message3 = "Hello world"
-if (language1) {
-    console.log(message1);
-} else if (language2) {
-    console.log(message2)
-} else if (language3) {
-    console.log(message3)
-}
-
-var score = 87;
-var rankA = "A";
-var rankB = "B";
-var rankC = "C";
-var result = rankA || rankB || rankC;
-if (score >= 90) {
-    var result = rankA;
-} else if (score >=50) {
-    var result = rankB;
-} else if (score < 50) {
-    var result = rankC;
+var subtraction = function (a, b) {
+    return a - b;
 };
-console.log(result);
+var resultSubtraction = subtraction(5, 3);
+console.log("result of 5-3 = " + resultSubtraction);
 
-var word = "orange";
-var wordNumber = 3;
-if (wordNumber <= 1) {
-    var word = "orange";
- } else if (wordNumber >= 2) {
-     var word = "oranges";
- }
- var resultWord = word;
- console.log("I have " + wordNumber + " " + resultWord);
+var division = function (a, b) {
+    return a / b;
+};
+var resultDivision = division(10, 2)
+console.log("result of 10/2 = " + resultDivision);
+
+
+var multiplication = function (a, b) {
+    return a * b;
+};
+var resultMultiplication = multiplication(4, 6);
+console.log("result of 4*6 = " + resultMultiplication);
+
+var percentage = function (num, per) {
+    return (num/100)*per;
+};
+var resultPercentage = percentage(87, 38);
+console.log("result of 38% of 87 = " + resultPercentage);
+
+var distanceHour = function (_km, _h) {
+    return _km / _h;
+};
+var resultDistandeHour = distanceHour(150, 2);
+console.log("average speed of 150km over 2 hours = " + resultDistandeHour + "km/h");
