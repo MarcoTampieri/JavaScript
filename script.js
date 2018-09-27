@@ -13,5 +13,13 @@ var myAge = 25;
 var maxAge = 80;
 var food = "pizza";
 var foodPerDay = 2;
-var remainingFood = (maxAge - myAge) * foodPerDay;
-console.log("Il vous reste " + remainingFood+ " " + food + " avant d'ateindre l'age de " + maxAge + " ans")
+var foodPerYear = 2 * 365;
+var remainingFood = (maxAge - myAge) * foodPerYear;
+console.log("Il vous reste " + remainingFood + " " + food + " avant d'ateindre l'age de " + maxAge + " ans")
+
+var x = 1 + 2;
+var y = 3;
+var z = 4 / 2;
+var q = x * y;
+var result = q + z;
+console.log(result)
