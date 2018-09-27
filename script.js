@@ -25,3 +25,13 @@ if (score >= 90) {
     var result = rankC;
 };
 console.log(result);
+
+var word = "orange";
+var wordNumber = 3;
+if (wordNumber <= 1) {
+    var word = "orange";
+ } else if (wordNumber >= 2) {
+     var word = "oranges";
+ }
+ var resultWord = word;
+ console.log("I have " + wordNumber + " " + resultWord);
