@@ -58,3 +58,21 @@ for (i = 0; i <toSell.length; i++) {
     } else {
     }
 }
+
+//ESERCIZIO 3
+
+let mainCharacter = {
+    name: "Io",
+    level: 20,
+    life: 120,
+    weapon : {
+        name: "fish",
+        damage: 903,
+    },
+    attack: function() {
+        result = mainCharacter.weapon.damage * mainCharacter.level;
+        console.log(mainCharacter.name + "attacks with " + mainCharacter.weapon.name +" for " + result)
+    }
+};
+
+mainCharacter.attack();
