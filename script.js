@@ -25,19 +25,27 @@ for (let i = 0; i < actors.length; i++) {
 
 //ESERCIZIO 3
 
-let game = ["Mario", "Luigi", "Peach"];
-game.push("Bowser");
-let newGame = game.slice(0);
-console.log(newGame);
-//
 let jeux = ["Mario", "Luigi", "Peach"];
 let nouveauJeux = jeux.slice(0);
 nouveauJeux.push("Bowser");
-console.log(nouveauJeux);
 console.log(jeux);
+console.log(nouveauJeux);
+//
+console.log("stop");
 //
 let gioco = ["Mario", "Luigi", "Peach"];
 let nuovoGioco = gioco;
 nuovoGioco.push("Bowser");
-console.log(nuovoGioco);
 console.log(gioco);
+console.log(nuovoGioco);
+//
+console.log("stop");
+//
+let arr = ["Mario", "Luigi", "Peach"]
+let arrUpdate = [];
+for (let i = 0; i < arr.length; i++) {
+    arrUpdate[i] = arr[i];   
+}
+arrUpdate.push("Bowser");
+console.log(arr);
+console.log(arrUpdate);
