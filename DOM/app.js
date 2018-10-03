@@ -31,3 +31,33 @@ for (i = 0; i < paragrafi.length; i++) {
     paragrafi[i].classList.add("shadow");
 };
 
+//EXERCISE 3
+
+//--
+var elemPre = document.querySelectorAll(".container > pre"), i;
+for (i = 0; i < elemPre.length; i++) {
+    elemPre[i].style.color = "red";
+    elemPre[i].style.backgroundColor = "white";
+    elemPre[i].style.borderTop = "3px solid red";
+    elemPre[i].style.borderBottom = "3px solid red";
+};
+
+//--
+/*document.querySelector("h3").innerHTML = "<em>Italic title ! yeah !</em>"; */
+var italico = document.querySelector("h3")
+italico.innerHTML = "<em>Italic title ! yeah !</em>";
+
+//--
+/*document.querySelector("h2").innerHTML = "<strong>HTML doesn't work !</strong>";*/
+var mime = document.querySelector("h2")
+mime.innerHTML = "<strong>HTML doesn't work !</strong>" 
+
+//ESERCIZIO 4
+var list = document.querySelector("ul");
+var point = document.createElement("li");
+point.innerHTML = "Mon meilleur ami est <a href='http://www.google.com'>Google</a>";
+list.appendChild(point);
+
+
+
+//document.querySelectorAll("ul > li > a").style.textDecoration = "none";
