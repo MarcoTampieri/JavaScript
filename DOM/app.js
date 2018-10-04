@@ -50,14 +50,28 @@ italico.innerHTML = "<em>Italic title ! yeah !</em>";
 //--
 /*document.querySelector("h2").innerHTML = "<strong>HTML doesn't work !</strong>";*/
 var mime = document.querySelector("h2")
-mime.innerHTML = "<strong>HTML doesn't work !</strong>" 
+mime.innerHTML = "<strong>HTML doesn't work !</strong>"
 
 //ESERCIZIO 4
 var list = document.querySelector("ul");
 var point = document.createElement("li");
 point.innerHTML = "Mon meilleur ami est <a href='http://www.google.com'>Google</a>";
+
 list.appendChild(point);
 
+var changeColor = document.querySelector("ul > li > a");
+changeColor.style.color = "red";
 
+//ESERCIZIO 5
 
-//document.querySelectorAll("ul > li > a").style.textDecoration = "none";
+var olList = document.querySelector("ol");
+while (olList.firstChild) {
+    olList.removeChild(olList.firstChild);
+};
+
+let newChildren = ["Silent Teacher", "Code Monkey", "CodeCombat"];
+for (i = 0; i < newChildren.length; i++) {
+    var newList = document.createElement("li");
+    newList.innerHTML = newChildren[i];
+    olList.appendChild(newList);
+};
