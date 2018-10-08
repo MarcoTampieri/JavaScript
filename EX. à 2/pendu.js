@@ -12,7 +12,14 @@ for (i = 0; i < solution.length; i++) {
 };
 let remainingLetters = solution.length;
 let trialNumber = 0;
-let triedGuess = [];
+
+function isInArray(arr, char){
+    for (let i = 0; i < arr.lenth; i++){
+        if (arr[i] == char)
+            return true;
+    }
+    return false;
+}
 
 while (remainingLetters > 0) {
     alert(arrayTry.join(" ") + "   " + "You tried: " + trialNumber + " times");
@@ -20,18 +27,18 @@ while (remainingLetters > 0) {
     if (guess === null) {
         break;
     } else if (guess.length !== 1) {
-        alert("Please enter a single letter");
-    } else if (guess.length !== null) {
+        alert("Enter a single letter");
+    } else {
         for (j = 0; j < solution.length; j++) {
-            if (solution[j] == guess) {
+            if (solution[j] === guess && !isInArray(arrayTry, guess)) {
+                console.log(arrayTry);
                 arrayTry[j] = guess;
                 remainingLetters--;
+                console.log(remainingLetters);
             };
-        }; trialNumber++;
-        triedGuess.push(guess);
-       /* if (guess == triedGuess) {
-            alert("You already played this letter, guess again") 
-        } */
+
+        };
+        trialNumber++;
     };
 };
 alert(arrayTry.join(""));
