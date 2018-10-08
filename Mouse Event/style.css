@@ -1,0 +1,16 @@
+
+div {
+    display: inline-block;
+    width: 175px;
+    height: 175px;
+    margin: 10px;
+    
+}
+
+.hoverMe {
+    background-color: red;
+}
+
+#reset {
+    background-color: green;
+}
