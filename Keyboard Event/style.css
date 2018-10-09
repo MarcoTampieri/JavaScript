@@ -1,0 +1,47 @@
+body {
+    background-color: gold;
+}
+
+.exercise1 {
+    width: 100%;
+    margin-bottom: 30px
+}
+
+#character {
+    width: 300px;
+    height: 100px;
+    background-color: darkblue;
+}
+
+#character2 {
+    width: 300px;
+    height: 100px;
+    background-color: aqua; 
+}
+
+.exercise2 {
+    width: 100%;
+}
+
+.exercise2 div {
+    display: inline-block;
+    width:200px;
+    height: 100px;
+}
+
+#up {
+    background-color: black;
+}
+#down {
+    background-color: darkblue;
+}
+#left {
+    background-color: darkred;
+}
+#right {
+    background-color: darkslategray;
+}
+
+.highlight {
+    opacity: 0.5;
+}
