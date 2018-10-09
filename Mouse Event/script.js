@@ -24,8 +24,6 @@ let yc = document.getElementById("axe-y")
 
 addEventListener("mousemove", function ecriture(e) {
     xc.innerText = e.screenX;
-    xc.style.backgroundColor = "gray";
-    yc.innerText = e.screenY;
-    yc.style.backgroundColor = "gray";
+    yc.innerText = e.screenY;   
 }
 );

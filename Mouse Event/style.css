@@ -1,14 +1,14 @@
-
-div {
-    
+.mouseEvent{
+    display: flex;
+    width: 100%;
+}
+.mouseEvent div {   
     width: 160px;
     height: 160px;
-    margin: 10px;
-    
+    margin: 5px;  
 }
 
-.hoverMe {
-    display: inline-block;
+.hoverMe {   
     background-color: red;
 }
 
@@ -18,6 +18,10 @@ div {
 
 #axe-x, #axe-y {
     background-color: gray;
-    text-align: center;
-    display: inline-block;
+    text-align: center;   
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }
+
+
