@@ -1,16 +1,23 @@
 
 div {
-    display: inline-block;
-    width: 175px;
-    height: 175px;
+    
+    width: 160px;
+    height: 160px;
     margin: 10px;
     
 }
 
 .hoverMe {
+    display: inline-block;
     background-color: red;
 }
 
 #reset {
     background-color: green;
+}
+
+#axe-x, #axe-y {
+    background-color: gray;
+    text-align: center;
+    display: inline-block;
 }
