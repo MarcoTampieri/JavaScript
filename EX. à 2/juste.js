@@ -19,13 +19,12 @@ let check = () => {
         alert("It's less than " + message + ". Try again!");
     } else if (message == winValue) {
         alert("Congratulations, you won! The price was " + message);
-    } else {
-        alert("You lose");
-    }
+    } 
 };
 
 while(trialLeft != 0){
     check();    
 }
 
-
+alert("You lose. Let's try again?")
+location.reload();
