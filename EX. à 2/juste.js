@@ -19,12 +19,24 @@ let check = () => {
         alert("It's less than " + message + ". Try again!");
     } else if (message == winValue) {
         alert("Congratulations, you won! The price was " + message);
-    } 
+        let goodEnd = confirm("You won, play again?");
+        if (goodEnd === true) {
+            location.reload();
+        } else {
+            alert("Thanks for playing");
+        };
+    } else if (trialLeft == 0) {
+        
+    }
 };
 
-while(trialLeft != 0){
-    check();    
+while (trialLeft != -1) {
+    check();
 }
+let badEnd = confirm("You lose. Try again?");
+if (badEnd === true) {
+    location.reload();
+} else {
+    alert("Thanks for playing");
+};
 
-alert("You lose. Let's try again?")
-location.reload();
