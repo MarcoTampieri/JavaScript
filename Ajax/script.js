@@ -11,7 +11,7 @@ xhr.onload = function () {
     } else {
         alert("An error occured while communicating with the server.");
     }
-    text.innerHTML = '"' + citazione.quote + '"\nAuthor: ' + citazione.author + '\n' + '<img src='+citazione.photo+' width=200px height=200px>';
+    text.innerHTML = '"' + citazione.quote + '"\nAuthor: ' + citazione.author + '\n' + '<img src=' + citazione.photo + ' width=200px height=200px>';
 };
 xhr.send();
 
