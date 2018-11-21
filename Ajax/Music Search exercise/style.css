@@ -30,9 +30,29 @@ input[type="search"]{
     padding: 0 1.2rem;
     outline: none;
     border: none;
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 5px 5px;
     background-color: rgba(255, 255, 255, 0.04);
     font-size: 2rem;
     text-align: center;
     color: #4CAF50;
+}
+
+ul {
+    list-style: none;
+    border-radius: 5px 5px 5px 5px;
+    padding: 0;
+}
+
+.results li {
+    margin-top: 3px;
+    background-color: gray;
+    color: #4CAF50;
+    text-align: center;
+    font-size: 17px;
+    border-bottom: 3px #17c591 solid;
+}
+
+.results li:hover {
+    color: gray;
+    background-color: #4CAF50;
 }
