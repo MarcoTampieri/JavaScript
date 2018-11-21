@@ -60,4 +60,3 @@ let postVideo = (video) => {
 let httpRequest = new XMLHttpRequest;
 
 document.querySelector('.search').addEventListener('keyup', myInput)
-
