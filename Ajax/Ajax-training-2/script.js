@@ -2,8 +2,8 @@ let global;
 
 let casi = '';
 
-let searchTitle = document.querySelector(".searchTitle");
-let searchYear = document.querySelector(".searchYear");
+let searchByTitle = document.querySelector(".searchTitle");
+let searchByYear = document.querySelector(".searchYear");
 
 // XXXXXXXXXXXXXXXXXXXXXXXXX SEARCH BY TITLE XXXXXXXXXXXXXXXXXXXXXXXXX
 let postMovieByTitle = (event) => {
@@ -16,14 +16,13 @@ let postMovieByTitle = (event) => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
             let response = JSON.parse(xhr.responseText);
-            postResult(response)
+            postResultList(response);
+            console.log(response);
         }
     }
 }
 
-
-
-searchTitle.addEventListener("keyup", function (e) {
+searchByTitle.addEventListener("keyup", function (e) {
     postMovieByTitle(e);
 })
 
@@ -32,32 +31,44 @@ searchTitle.addEventListener("keyup", function (e) {
 let postMovieByYear = (event) => {
     console.log("hello")
     let bob = event.target.value;
+    
     let url2 = `http://www.omdbapi.com/?apikey=3a3c06ba&y=${bob}&s=bob`
-    fetch(url2, {method : 'GET'})
+    fetch(url2, {
+            method: 'GET'
+        })
         .then((response) => response.json())
-        .then((parsedData) => postResult(parsedData))
+        .then((parsedData) => postResultList(parsedData))
         .catch((error) => console.warn(error));
-
 }
 
-searchYear.addEventListener("keyup", function (e) {
+searchByYear.addEventListener("keyup", function (e) {
     if (e.keyCode === 13) {
         postMovieByYear(e);
     }
 })
 
-// UNIVERSAL FUNCTION
+//XXXXXXXXXXXXXXXXXXXXXXXXX UNIVERSAL FUNCTIONS XXXXXXXXXXXXXXXXXXXXXXXXX
 
-let postResult = (data) => {
+let postResultList = (data) => {
     let lista = document.querySelector(".lista");
     lista.innerHTML = '';
     for (let i = 0; i < data.Search.length; i++) {
         let li = document.createElement("li");
+        li.id = data.Search[i].imdbID;
+        console.log(li.id)
         li.innerHTML = /*html*/ `
-        <img class="poster" src="${data.Search[i].Poster}" alt="poster">
-            <h6 class="movieTitle"> ${data.Search[i].Title}</h6>
-            <p class="yearRelease">${data.Search[i].Year}</p>
-            <p class="synopsis">${data.Search[i].Type}</p>`
+            <p id="${data.Search[i].imdbID}" class="movieTitle">Title: ${data.Search[i].Title} <br>
+            Release year: ${data.Search[i].Year} <br>
+            Type: ${data.Search[i].Type}</p>
+        `
         lista.appendChild(li);
+        li.addEventListener("click", showFile)
     }
+}
+
+let showFile = (data) => {
+    console.log(data.currentTarget.id);
+    let id = data.currentTarget.id;
+    let fileUrl = `http://www.omdbapi.com/?i=${id}&apikey=3a3c06ba`;
+    fetch(fileUrl);
 }

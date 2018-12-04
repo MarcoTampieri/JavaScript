@@ -1,0 +1,53 @@
+body {
+    background-image: linear-gradient(-90deg, #766585, #453d4b, #322c36, #453d4b, #766585);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+main {
+    width: 60%;
+    margin: auto;
+    margin-top: 10vh;
+}
+
+h3 {
+    text-align: center;
+    color: snow;
+}
+
+section {
+    width: 80%;
+    margin: auto;
+}
+
+.searchfield {
+    display: flex;
+}
+
+input {
+    margin: auto;
+    width: 160px;
+    background-color: #beececd8;
+    border: 1px solid #c5c5c5;
+    border-radius: 5px;
+}
+
+ul {
+    width: 80%;
+    margin: auto;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    background: #fffcdf;
+    background: linear-gradient(157deg, #fffcdf 0%, #676767 100%);
+    margin-top: 2vh;
+    padding-left: 9px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+p {
+    margin: 0;
+}
