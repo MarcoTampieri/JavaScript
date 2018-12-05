@@ -51,3 +51,36 @@ li {
 p {
     margin: 0;
 }
+
+/* XXXXXXXXXXXXXXXXX MOVIE GRID XXXXXXXXXXXXXXX */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "poster texts";
+    margin-top: 15vh;
+  }
+  
+  .poster { grid-area: poster; }
+  
+  .texts { grid-area: texts; }
+
+
+img {
+    margin: auto;
+    display: block;
+    height: 351px;
+    width: 225px;
+}
+
+.specialH {
+    color: rgb(233, 213, 213);
+    border-bottom: silver 3px solid;
+    width: fit-content;
+}
+
+.special {
+    color: white;
+    font-weight: bold
+}
