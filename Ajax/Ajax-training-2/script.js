@@ -1,12 +1,14 @@
 let searchByTitle = document.querySelector(".searchTitle");
 let searchByYear = document.querySelector(".searchYear");
+let searchButton = document.querySelector(".submitInputs");
+let clearButton = document.querySelector(".clearPage");
 
 // XXXXXXXXXXXXXXXXXXXXXXXXX SEARCH BY TITLE XXXXXXXXXXXXXXXXXXXXXXXXX
 let postMovieByTitle = (event) => {
 
     let searchInput = event.target.value;
     const xhr = new XMLHttpRequest;
-    let url1 = `http://www.omdbapi.com/?apikey=3a3c06ba&s=${searchInput}`;
+    let url1 = `http://www.omdbapi.com/?apikey=3a3c06ba&s=${searchInput}&y=`;
     xhr.open('GET', url1);
     xhr.send();
     xhr.onreadystatechange = () => {
@@ -18,11 +20,11 @@ let postMovieByTitle = (event) => {
     }
 }
 
-searchByTitle.addEventListener("keyup", function (e) {
-    if (e.keyCode === 13) {
-        postMovieByTitle(e);
-    }
-})
+// searchByTitle.addEventListener("keyup", function (e) {
+//     if (e.keyCode === 13) {
+//         postMovieByTitle(e);
+//     }
+// })
 
 //XXXXXXXXXXXXXXXXXXXXXXXXX SEARCH BY YEAR XXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -37,33 +39,39 @@ let postMovieByYear = (event) => {
         .then((parsedData) => postResultList(parsedData))
 }
 
-searchByYear.addEventListener("keyup", function (e) {
-    if (e.keyCode === 13) {
-        postMovieByYear(e);
+// searchByYear.addEventListener("keyup", function (e) {
+//     if (e.keyCode === 13) {
+//         postMovieByYear(e);
+//     }
+// })
+
+//XXXXXXXXXXXXXXXXXXXXXXXXX  SEARCH BY CROSSREFERENCE  XXXXXXXXXXXXXXXXXXXXXXXXX
+
+let inputTitle = document.querySelector(".searchTitle");
+let inputYear = document.querySelector(".searchYear");
+let inputGenre = document.querySelector(".searchType");
+
+let stashValue = () => {
+
+    let valueTitle = inputTitle.value
+    let valueYear = inputYear.value
+    let valueGenre = inputGenre.value
+    if (valueTitle != '' || valueYear != '' || valueGenre != '') {
+        let crossUrl = `http://www.omdbapi.com/?apikey=3a3c06ba&s=${valueTitle}&y=${valueYear}&type=${valueGenre}`
+        fetch(crossUrl)
+            .then((response) => response.json())
+            .catch((error) => console.warn(error))
+            .then((parsedData) => postResultList(parsedData));
+    } else {
+        alert("Please Enter a search parameter.");
     }
-})
+
+
+}
+
+searchButton.addEventListener("click", stashValue)
 
 //XXXXXXXXXXXXXXXXXXXXXXXXX UNIVERSAL FUNCTIONS XXXXXXXXXXXXXXXXXXXXXXXXX
-
-// let postResultList = (data) => {
-//     let lista = document.querySelector(".lista");
-//     lista.innerHTML = '';
-//     console.log(data.Search)
-//     for (let i = 0; i < data.Search.length; i++) {
-//         let li = document.createElement("li");
-//         li.id = data.Search[i].imdbID;
-//         //console.log(li.id)
-//         li.innerHTML = /*html*/ `
-//             <a href="showFilm.html?id=${data.Search[i].imdbID}">
-//             <p id="${data.Search[i].imdbID}" class="movieTitle">Title: ${data.Search[i].Title} <br>
-//             Release year: ${data.Search[i].Year} <br>
-//             Type: ${data.Search[i].Type}</p>
-//             </a>
-//         `
-//         lista.appendChild(li);
-
-//     }
-// }
 
 let postResultList = (data) => {
     let lista = document.querySelector(".lista");
@@ -83,14 +91,15 @@ let postResultList = (data) => {
 
     })
 }
-// let champ1= document.querySelector("input1");
-// let champ2= document.querySelector("input2");
-// let champ3= document.querySelector("input3");
 
-// formClass.addEventListener("onsubmit", stashValue)
+//XXXXXXXXXXXXXXXXXXXXXXXXX CLEAR PAGE XXXXXXXXXXXXXXXXXXXXXXXXX
 
-// let stashValue = () => {
-//     let value1= champ1.value
-//     let value2= champ2.value
-//     let value3= champ3.value
-// }
+let clearPage = () => {
+    let lista = document.querySelector(".lista");
+    lista.innerHTML = '';
+    inputTitle.value = '';
+    inputYear.value = '';
+    inputGenre.value = '';
+}
+
+clearButton.addEventListener("click", clearPage)

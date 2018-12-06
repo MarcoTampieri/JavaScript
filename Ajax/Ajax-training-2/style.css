@@ -24,13 +24,71 @@ section {
     display: flex;
 }
 
+/* XXXXXXXXXXXXXXXXXX INPUT CSS XXXXXXXXXXXXXXXXXX */
+
 input {
     margin: auto;
     width: 160px;
-    background-color: #beececd8;
-    border: 1px solid #c5c5c5;
-    border-radius: 5px;
+    height: 5.6rem;
+    outline: none;
+    border: none;
+    border-radius: 5px 5px 5px 5px;
+    background-color: rgba(255, 255, 255, 0.04);
+    font-size: 1.5rem;
+    text-align: center;
+    color: #4CAF50;
 }
+
+/* XXXXXXXXXXXXXXXXXX BUTTONS CSS XXXXXXXXXXXXXXXXXX */
+
+.buttonSection {
+    margin-top: 4vh;
+    display: flex;
+}
+
+button {
+    display: inline-block;
+    position: relative;
+    padding: 6px 23px;
+    top: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: "Open Sans", Helvetica;
+    border-radius: 4px;
+    border-bottom: 1px solid rgba(28, 227, 125, 0.5);
+    background: rgba(22, 230, 137, 1);
+    color: #fff;
+    box-shadow: 0px 0px 0px rgba(15, 165, 60, 0.1);
+    transform: translateZ(0);
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    top: -10px;
+    box-shadow: 0px 10px 10px rgba(15, 165, 60, 0.2);
+    transform: rotateX(5deg);
+}
+
+button:active {
+    top: 0px;
+    box-shadow: 0px 0px 0px rgba(15, 165, 60, 0.0);
+    background: rgba(20, 224, 133, 1);
+}
+
+button {
+    margin: auto;
+    display: block;
+}
+
+.clearPage {
+    background-color: rgb(250, 108, 108);
+}
+
+.clearPage:hover {
+    box-shadow: 0px 10px 10px #a50f0f33;
+}
+
+/* XXXXXXXXXXXXXXXXXX LIST CSS XXXXXXXXXXXXXXXXXX */
 
 ul {
     width: 80%;
@@ -41,15 +99,23 @@ ul {
 
 li {
     background: #fffcdf;
-    background: linear-gradient(157deg, #fffcdf 0%, #676767 100%);
+    background-color: rgba(255, 255, 255, 0.04);
     margin-top: 2vh;
     padding-left: 9px;
     padding-top: 5px;
     padding-bottom: 5px;
+    border: rgb(110, 99, 116) 1px solid;
+}
+
+li a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-weight: bold;
 }
 
 p {
     margin: 0;
+    font-size: 15px
 }
 
 /* XXXXXXXXXXXXXXXXX MOVIE GRID XXXXXXXXXXXXXXX */
@@ -60,12 +126,17 @@ p {
     grid-template-rows: 1fr;
     grid-template-areas: "poster texts";
     margin-top: 15vh;
-  }
-  
-  .poster { grid-area: poster; }
-  
-  .texts { grid-area: texts; }
+    background: rgb(255, 252, 223);
+    background: linear-gradient(47deg, #fffcdf7a 0%, #00000073 100%);
+}
 
+.poster {
+    grid-area: poster;
+}
+
+.texts {
+    grid-area: texts;
+}
 
 img {
     margin: auto;
