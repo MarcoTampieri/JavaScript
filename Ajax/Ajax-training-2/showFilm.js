@@ -12,7 +12,8 @@ let showFilm = () => {
             <div class="texts">
              <h3 class=specialH>${parsedData.Title}</h3>
              <p class="special">Actors <br>${parsedData.Actors}</p> <br>
-             <p class="special">Synopsis <br>${parsedData.Plot}</p>
+             <p class="special">Synopsis <br>${parsedData.Plot}</p> <br>
+             <p class="special">Year of release <br>${parsedData.Year}</p>
              </div>
              `
             })

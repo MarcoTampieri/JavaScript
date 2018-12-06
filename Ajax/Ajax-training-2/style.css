@@ -1,6 +1,7 @@
 body {
-    background: rgb(255,252,223);
-    background: linear-gradient(47deg, rgba(255,252,223,1) 0%, rgba(95,30,122,1) 100%); 
+
+    background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/EVeDgMMCximbyooji/videoblocks-abstract-background-with-blue-molecule-structure-low-poly-4k-motion-graphics_shwtbi4_thumbnail-full01.png');
+    background-attachment: fixed;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
@@ -133,7 +134,7 @@ p {
     margin-top: 9vh;
     padding: 2vh;
     background: rgb(255, 252, 223);
-    background: linear-gradient(47deg, #fffcdf7a 0%, #00000073 100%);
+    background: linear-gradient(47deg, #00000073 100%, #ffffffa2 0%, #00000073 100%);
 }
 
 .poster {
