@@ -3,12 +3,17 @@ let searchByYear = document.querySelector(".searchYear");
 let searchButton = document.querySelector(".submitInputs");
 let clearButton = document.querySelector(".clearPage");
 
+let inputTitle = document.querySelector(".searchTitle");
+let inputYear = document.querySelector(".searchYear");
+let inputGenre = document.querySelector(".searchType");
+
+
 // XXXXXXXXXXXXXXXXXXXXXXXXX SEARCH BY TITLE XXXXXXXXXXXXXXXXXXXXXXXXX
 let postMovieByTitle = (event) => {
-
+    let valueYear = inputYear.value
     let searchInput = event.target.value;
     const xhr = new XMLHttpRequest;
-    let url1 = `http://www.omdbapi.com/?apikey=3a3c06ba&s=${searchInput}&y=`;
+    let url1 = `http://www.omdbapi.com/?apikey=3a3c06ba&s=${searchInput}&y=${valueYear}`;
     xhr.open('GET', url1);
     xhr.send();
     xhr.onreadystatechange = () => {
@@ -20,36 +25,29 @@ let postMovieByTitle = (event) => {
     }
 }
 
-// searchByTitle.addEventListener("keyup", function (e) {
-//     if (e.keyCode === 13) {
-//         postMovieByTitle(e);
-//     }
-// })
+searchByTitle.addEventListener("keyup", function (e) {
+    postMovieByTitle(e);
+})
 
 //XXXXXXXXXXXXXXXXXXXXXXXXX SEARCH BY YEAR XXXXXXXXXXXXXXXXXXXXXXXXX
 
 let postMovieByYear = (event) => {
-    console.log("hello")
     let searchInput = event.target.value;
-
-    let url2 = `http://www.omdbapi.com/?apikey=3a3c06ba&y=${searchInput}&s=bob`
+    let valueTitle = inputTitle.value
+    let url2 = `http://www.omdbapi.com/?apikey=3a3c06ba&y=${searchInput}&s=${valueTitle}`
     fetch(url2)
         .then((response) => response.json())
         .catch((error) => console.warn(error))
         .then((parsedData) => postResultList(parsedData))
 }
 
-// searchByYear.addEventListener("keyup", function (e) {
-//     if (e.keyCode === 13) {
-//         postMovieByYear(e);
-//     }
-// })
+searchByYear.addEventListener("keyup", function (e) {
+    postMovieByYear(e);
+})
 
 //XXXXXXXXXXXXXXXXXXXXXXXXX  SEARCH BY CROSSREFERENCE  XXXXXXXXXXXXXXXXXXXXXXXXX
 
-let inputTitle = document.querySelector(".searchTitle");
-let inputYear = document.querySelector(".searchYear");
-let inputGenre = document.querySelector(".searchType");
+
 
 let stashValue = () => {
 
@@ -65,8 +63,6 @@ let stashValue = () => {
     } else {
         alert("Please Enter a search parameter.");
     }
-
-
 }
 
 searchButton.addEventListener("click", stashValue)

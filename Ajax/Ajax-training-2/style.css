@@ -1,5 +1,6 @@
 body {
-    background-image: linear-gradient(-90deg, #766585, #453d4b, #322c36, #453d4b, #766585);
+    background: rgb(255,252,223);
+    background: linear-gradient(47deg, rgba(255,252,223,1) 0%, rgba(95,30,122,1) 100%); 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
 }
@@ -10,7 +11,7 @@ main {
     margin-top: 10vh;
 }
 
-h3 {
+h2 {
     text-align: center;
     color: snow;
 }
@@ -29,14 +30,14 @@ section {
 input {
     margin: auto;
     width: 160px;
-    height: 5.6rem;
+    height: 2.6rem;
     outline: none;
     border: none;
     border-radius: 5px 5px 5px 5px;
-    background-color: rgba(255, 255, 255, 0.04);
+    background-color: #ffffff73;
     font-size: 1.5rem;
     text-align: center;
-    color: #4CAF50;
+    color: rgb(76, 197, 80);
 }
 
 /* XXXXXXXXXXXXXXXXXX BUTTONS CSS XXXXXXXXXXXXXXXXXX */
@@ -88,6 +89,10 @@ button {
     box-shadow: 0px 10px 10px #a50f0f33;
 }
 
+.clearPage:active {
+    background-color: rgb(255, 89, 89);
+}
+
 /* XXXXXXXXXXXXXXXXXX LIST CSS XXXXXXXXXXXXXXXXXX */
 
 ul {
@@ -99,7 +104,7 @@ ul {
 
 li {
     background: #fffcdf;
-    background-color: rgba(255, 255, 255, 0.04);
+    background-color: #ffffff73;
     margin-top: 2vh;
     padding-left: 9px;
     padding-top: 5px;
@@ -109,7 +114,7 @@ li {
 
 li a {
     text-decoration: none;
-    color: #4CAF50;
+    color: rgb(51, 51, 51);
     font-weight: bold;
 }
 
@@ -125,7 +130,8 @@ p {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "poster texts";
-    margin-top: 15vh;
+    margin-top: 9vh;
+    padding: 2vh;
     background: rgb(255, 252, 223);
     background: linear-gradient(47deg, #fffcdf7a 0%, #00000073 100%);
 }
@@ -154,4 +160,11 @@ img {
 .special {
     color: white;
     font-weight: bold
+}
+
+#home ion-icon {
+    font-size: 34px;
+    background-color: rgba(255, 255, 255, 0.739);
+    border-radius: 4px;
+    border: 1px solid rgb(15, 219, 15);
 }
