@@ -124,6 +124,18 @@ p {
     font-size: 15px
 }
 
+.nullSearch {
+    background: #fffcdf;
+    background-color: #ffffff73;
+    text-align: center;
+    font-style: italic;
+    color: #c00101;
+    border: #6e6374 1px solid;
+    margin-top: 2vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 /* XXXXXXXXXXXXXXXXX MOVIE GRID XXXXXXXXXXXXXXX */
 
 .grid-container {

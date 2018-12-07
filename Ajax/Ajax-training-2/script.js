@@ -23,9 +23,9 @@ let postMovieByTitle = (event) => {
     }
 }
 
-searchByTitle.addEventListener("keyup", function (e) {
-    postMovieByTitle(e);
-})
+// searchByTitle.addEventListener("keyup", function (e) {
+//     postMovieByTitle(e);
+// })
 
 //XXXXXXXXXXXXXXXXXXXXXXXXX SEARCH BY YEAR XXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -45,9 +45,9 @@ let postMovieByYear = (event) => {
   
 }
 
-searchByYear.addEventListener("keyup", function (e) {
-    postMovieByYear(e);
-})
+// searchByYear.addEventListener("keyup", function (e) {
+//     postMovieByYear(e);
+// })
 
 //XXXXXXXXXXXXXXXXXXXXXXXXX SEARCH BY TYPE XXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -67,9 +67,9 @@ let postMovieByGenre = (event) => {
 
 }
 
-searchByGenre.addEventListener("keyup", function (e) {
-    postMovieByGenre(e);
-})
+// searchByGenre.addEventListener("keyup", function (e) {
+//     postMovieByGenre(e);
+// })
 
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX METHOD 1: ON 'ENTER' XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -89,7 +89,7 @@ let stashValue = () => {
             .catch((error) => console.warn(error)) //<-- work on errors here alert(error + "\nSearch turned out no results, try other parameters")
             .then((parsedData) => postResultList(parsedData));
     } else {
-        alert("Please Enter a search parameter.");
+        alert("Please Enter search parameters.");
     }
 }
 
@@ -107,10 +107,11 @@ let postResultList = (data) => {
     while (lista.hasChildNodes()) {
         lista.removeChild(lista.firstChild)
     };
-    console.log("data= " + data.Response)
+
     if (data.Response == "False") {
-        // alert("Search found 0 results for your search parameters, try with others.")
+        document.querySelector(".nullSearch").innerHTML = "No Results";
     } else {
+        document.querySelector(".nullSearch").innerHTML = "";
         data.Search.map(i => {
             let li = document.createElement("li");
             li.id = i.imdbID;
