@@ -7,16 +7,30 @@ let showFilm = () => {
         .then((response) => response.json())
         .then((parsedData) => {
             let filmDiv = document.querySelector(".grid-container");
-            filmDiv.innerHTML = /*html*/ `
-            <div class="poster"><img src="${parsedData.Poster}" alt="Film poster"></div> 
-            <div class="texts">
-             <h3 class=specialH>${parsedData.Title}</h3>
-             <p class="special">Actors <br>${parsedData.Actors}</p> <br>
-             <p class="special">Synopsis <br>${parsedData.Plot}</p> <br>
-             <p class="special">Year of release <br>${parsedData.Year}</p>
-             </div>
+            if (parsedData.Type == "movie" || parsedData.Type == "series") {
+                filmDiv.innerHTML = /*html*/ `
+                <div class="poster"><img src="${parsedData.Poster}" alt="Film poster"></div> 
+                <div class="texts">
+                <h3 class=specialH>${parsedData.Title}</h3>
+                <p class="special">Type: ${parsedData.Type}</p><br> 
+                <p class="special">Year of release <br>${parsedData.Year}</p><br> 
+                <p class="special">Actors <br>${parsedData.Actors}</p> <br>
+                <p class="special">Synopsis <br>${parsedData.Plot}</p> <br>             
+                </div>
              `
-            })
-        }
+            } else if (parsedData.Type == "game") {
+                filmDiv.innerHTML = /*html*/ `
+                <div class="poster"><img src="${parsedData.Poster}" alt="Film poster"></div> 
+                <div class="texts">
+                 <h3 class=specialH>${parsedData.Title}</h3>
+                 <p class="special">Type: ${parsedData.Type}</p><br> 
+                 <p class="special">Year of release <br>${parsedData.Year}</p><br> 
+                 <p class="special">Voice actors <br>${parsedData.Actors}</p> <br>
+                 <p class="special">Synopsis <br>${parsedData.Plot}</p> <br>             
+                 </div>
+             `
+            }
+        })
+}
 
-showFilm();        
+showFilm();

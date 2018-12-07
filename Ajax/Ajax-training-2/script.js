@@ -14,11 +14,13 @@ let postMovieByTitle = (event) => {
     let valueYear = searchByYear.value;
     let valueGenre = searchByGenre.value
 
-    let url1 = `http://www.omdbapi.com/?apikey=3a3c06ba&s=${searchInput}&y=${valueYear}&type=${valueGenre}`;
-    fetch(url1)
-        .then((response) => response.json())
-        .catch((error) => alert(error))
-        .then((parsedData) => postResultList(parsedData))
+    if (searchInput.length >= 3) {
+        let url1 = `http://www.omdbapi.com/?apikey=3a3c06ba&s=${searchInput}&y=${valueYear}&type=${valueGenre}`;
+        fetch(url1)
+            .then((response) => response.json())
+            .catch((error) => console.warn(error))
+            .then((parsedData) => postResultList(parsedData))
+    }
 }
 
 searchByTitle.addEventListener("keyup", function (e) {
@@ -33,11 +35,14 @@ let postMovieByYear = (event) => {
     let valueTitle = searchByTitle.value;
     let valueGenre = searchByGenre.value
 
-    let url2 = `http://www.omdbapi.com/?apikey=3a3c06ba&y=${searchInput}&s=${valueTitle}&type=${valueGenre}`
-    fetch(url2)
-        .then((response) => response.json())
-        .catch((error) => alert(error))
-        .then((parsedData) => postResultList(parsedData))
+    if (searchInput.length >= 3) {
+        let url2 = `http://www.omdbapi.com/?apikey=3a3c06ba&y=${searchInput}&s=${valueTitle}&type=${valueGenre}`
+        fetch(url2)
+            .then((response) => response.json())
+            .catch((error) => console.warn(error))
+            .then((parsedData) => postResultList(parsedData))
+    }
+  
 }
 
 searchByYear.addEventListener("keyup", function (e) {
@@ -52,11 +57,14 @@ let postMovieByGenre = (event) => {
     let valueTitle = searchByTitle.value;
     let valueYear = searchByYear.value;
 
-    let url2 = `http://www.omdbapi.com/?apikey=3a3c06ba&type=${searchInput}&s=${valueTitle}&y=${valueYear}`
+    if (searchInput.length >= 3) {
+        let url2 = `http://www.omdbapi.com/?apikey=3a3c06ba&type=${searchInput}&s=${valueTitle}&y=${valueYear}`
     fetch(url2)
         .then((response) => response.json())
-        .catch((error) => alert(error))
+        .catch((error) => console.warn(error))
         .then((parsedData) => postResultList(parsedData))
+    }
+
 }
 
 searchByGenre.addEventListener("keyup", function (e) {
@@ -70,15 +78,15 @@ searchByGenre.addEventListener("keyup", function (e) {
 
 let stashValue = () => {
 
-    let valueTitle = inputTitle.value;
-    let valueYear = inputYear.value;
-    let valueGenre = inputGenre.value;
+    let valueTitle = searchByTitle.value;
+    let valueYear = searchByYear.value;
+    let valueGenre = searchByGenre.value;
 
     if (valueTitle != '' || valueYear != '' || valueGenre != '') {
         let crossUrl = `http://www.omdbapi.com/?apikey=3a3c06ba&s=${valueTitle}&y=${valueYear}&type=${valueGenre}`
         fetch(crossUrl)
             .then((response) => response.json())
-            .catch((error) => console.warn(error)) //<-- work on errors here
+            .catch((error) => console.warn(error)) //<-- work on errors here alert(error + "\nSearch turned out no results, try other parameters")
             .then((parsedData) => postResultList(parsedData));
     } else {
         alert("Please Enter a search parameter.");
@@ -99,24 +107,24 @@ let postResultList = (data) => {
     while (lista.hasChildNodes()) {
         lista.removeChild(lista.firstChild)
     };
-    console.log("data= "+ data.Response)
+    console.log("data= " + data.Response)
     if (data.Response == "False") {
-        alert("error")
+        // alert("Search found 0 results for your search parameters, try with others.")
     } else {
         data.Search.map(i => {
-                let li = document.createElement("li");
-                li.id = i.imdbID;
-                //console.log(li.id)
-                li.innerHTML = /*html*/ ` 
+            let li = document.createElement("li");
+            li.id = i.imdbID;
+            //console.log(li.id)
+            li.innerHTML = /*html*/ ` 
             <a href="showFilm.html?id=${i.imdbID}">
             <p id="${i.imdbID}" class="movieTitle">Title: ${i.Title} <br>
             Release year: ${i.Year} <br>
             Type: ${i.Type}</p>
             </a>
         `
-                lista.appendChild(li);
-            })
-        }
+            lista.appendChild(li);
+        })
+    }
 }
 
 //XXXXXXXXXXXXXXXXXXXXXXXXX CLEAR PAGE XXXXXXXXXXXXXXXXXXXXXXXXX
